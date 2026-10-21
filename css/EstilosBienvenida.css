@@ -1,0 +1,288 @@
+/********* SECCIÓN BIENVENIDA **********/
+
+.bienvenida {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    padding: 40px 8%;
+    align-items: center;
+}
+
+.bienvenida-texto {
+    flex: 1 1 300px;   
+    text-align:left;
+}
+
+.bienvenida h1 {
+    color: var(--hueso);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.bienvenida p {
+    color: var(--hueso);
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+/********* IMAGEN BIENVENIDA **********/
+
+.bienvenida-imagen {
+    display: flex;
+    flex: 1 1 300px;
+    justify-content: center;
+    align-items: center;
+}
+
+.bienvenida-imagen img {
+   
+    width: 100%;
+    max-width: 500px;
+    height: auto; 
+
+   
+}
+
+
+/********* BOTÓN **********/
+
+.boton {
+    display: inline-block;
+
+    background-color: var(--miel);
+    color: var(--selva-900);
+
+    padding: 12px 25px;
+
+    border-radius: var(--radio-sm);
+
+    font-weight: bold;
+}
+
+.boton:hover {
+    background-color: var(--miel-suave);
+}
+
+
+/********* SECCIÓN VETERINARIOS **********/
+
+.veterinarios {
+
+    background-color: var(--hueso);
+
+    padding: 70px 20px;
+
+    text-align: center;
+}
+
+.veterinarios h2 {
+
+    color: var(--selva-900);
+
+    font-size: 2rem;
+
+    margin-bottom: 10px;
+}
+
+.descripcion-equipo {
+
+    color: var(--acero);
+
+    margin-bottom: 40px;
+}
+
+
+/********* CONTENEDOR DE CARDS **********/
+
+.contenedor-cards {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: stretch;
+
+    gap: 25px;
+
+    flex-wrap: wrap; 
+}
+
+
+/********* CARD VETERINARIO **********/
+
+.card-veterinario {
+
+    background-color: white;
+
+    width: 280px;
+
+    padding: 25px;
+
+    border-radius: var(--radio);
+
+    box-shadow: var(--sombra);
+
+    color: var(--tinta);
+}
+
+
+.card-veterinario img {
+
+    width: 120px;
+
+    height: 120px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    margin-bottom: 15px;
+}
+
+
+.card-veterinario h3 {
+
+    color: var(--selva);
+
+    margin-bottom: 20px;
+}
+
+
+.card-veterinario p {
+
+    line-height: 1.5;
+
+    color: var(--acero);
+}
+
+
+.card-veterinario strong {
+
+    color: var(--selva-900);
+}
+
+/********* SECCIÓN SERVICIOS **********/
+
+.servicios {
+    background-color: var(--hueso-2);
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: var(--borde);
+    border-bottom: var(--borde);
+
+}
+
+/********* ENCABEZADO (ARRIBA) **********/
+
+.servicios-encabezado {
+    text-align: center;
+    max-width: 650px;
+    margin-bottom: 40px;
+}
+
+.subtitulo-seccion {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--miel);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.servicios-encabezado h2 {
+    color: var(--selva);
+    font-size: 2.2rem;
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-weight: 800;
+}
+
+.servicios-encabezado p {
+    color: var(--tinta);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/********* CONTENEDOR DE CARDS (ABAJO) **********/
+
+.contenedor-servicios {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; 
+    max-width: 1100px;
+    width: 100%;
+}
+
+/********* TARJETA DE SERVICIO **********/
+
+.card-servicio {
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: var(--radio);
+    padding: 24px;
+    width: 230px; /* Tamaño fijo adaptado para Flexbox en fila */
+    box-sizing: border-box;
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    border-top: 3px solid var(--menta); /* Línea superior de color menta */
+}
+
+.icono-servicio {
+    color: var(--menta);
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+}
+
+.card-servicio h3 {
+    color: var(--selva-900);
+    font-size: 1.1rem;
+    margin: 0 0 8px 0;
+    font-weight: 700;
+}
+
+.card-servicio p {
+    color: var(--acero);
+    font-size: 0.88rem;
+    line-height: 1.45;
+    margin: 0;
+}
+
+/********* MEDIA QUERIES (SERVICIOS) **********/
+
+/**   @media (max-width: 768px) {
+    .contenedor-servicios {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-servicio {
+        width: 100%;
+        max-width: 380px;
+    }
+}
+
+/********* MEDIA QUERIES (BIENVENIDA) **********/
+/*@media (max-width: 768px) {
+
+    .bienvenida {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .bienvenida-texto {
+        text-align: center;
+    }
+
+    .bienvenida-imagen img {
+        max-width: 400px;
+    }
+
+}

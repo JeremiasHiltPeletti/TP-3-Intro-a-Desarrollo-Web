@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="./css/EstilosBienvenida.css">
+    <link rel="stylesheet" href="./css/bases.css">
+    <link rel="stylesheet" href="./css/estilos.css" >
+    <title>Veterinaria Huellitas</title>
+</head>
+<body>
+    
+    <header>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-huellitas">
+        <div class="container-fluid">
+
+            <a class="navbar-brand Logo" href="index.html">
+                <img src="./assets/logo/LogoHuellitas/isotipo-512.png" alt="Veterinaria Huellitas">
+                <span class="nombre-veterinaria">Veterinaria <em>Huellitas</em></span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#menuPrincipal" aria-controls="menuPrincipal"
+                    aria-expanded="false" aria-label="Abrir menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="institucional.html">Sobre Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cobertura.html">Cobertura</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contactos.html">Contactos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="mascotas.html">Mascotas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="veterinarios.html">Veterinarios</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</header>
+    
+<main id="inicio">
+
+    <!-- SECCIÓN DE BIENVENIDA -->
+    
+    <section class="bienvenida row text-center">
+
+        <!-- COLUMNA IZQUIERDA -->
+        <div class="bienvenida-texto col-12 col-md-6 text-center text-md-start">
+
+            <h1>Bienvenidos a Veterinaria Huellitas</h1>
+
+            <p>
+                Cuidamos la salud y el bienestar de tus mascotas
+                con amor, compromiso y profesionalismo.
+            </p>
+
+            <a href="contactos.html" class="boton">
+                Solicitar turno
+            </a>
+
+        </div>
+
+
+        <!-- COLUMNA DERECHA -->
+        <div class="bienvenida-imagen col-12 col-md-6">
+
+            <img src="./assets/imgbienvenida.png" alt="Perro y gato en veterinaria">            
+
+        </div>
+
+    </section>
+
+    <!-- SECCIÓN DE SERVICIOS -->
+<section class="servicios ">
+        
+        <!-- ENCABEZADO -->
+        <div class="servicios-encabezado text-center mb-4">
+            <span class="subtitulo-seccion">SERVICIOS</span>
+            <h2>Todo en el mismo lugar</h2>
+            <p>
+                Resolvemos la consulta, el estudio y el tratamiento sin derivarte a otro centro. 
+                La historia clínica queda registrada y disponible para el próximo control.
+            </p>
+        </div>
+
+        <!-- TARJETAS DE SERVICIOS BOOTSTRAP -->
+        <div class="row g-4 justify-content-center">
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 text-center shadow-sm">
+                    <div class="card-body">
+                        <div class="icono-servicio mb-3 fs-1">
+                            <i class="fas fa-stethoscope"></i>
+                        </div>
+                        <h3 class="card-title h5">Consultorios</h3>
+                        <p class="card-text">Cuatro consultorios equipados con balanza, otoscopio y ecógrafo portátil para diagnósticos inmediatos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 text-center shadow-sm">
+                    <div class="card-body">
+                        <div class="icono-servicio mb-3 fs-1">
+                            <i class="fas fa-cut"></i>
+                        </div>
+                        <h3 class="card-title h5">Quirófano</h3>
+                        <p class="card-text">Cirugías programadas y de urgencia con monitoreo anestésico completo para la seguridad de tu mascota.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 text-center shadow-sm">
+                    <div class="card-body">
+                        <div class="icono-servicio mb-3 fs-1">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3 class="card-title h5">Laboratorio</h3>
+                        <p class="card-text">Hemogramas y análisis bioquímicos completos con entrega de resultados en el mismo día.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 text-center shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="icono-servicio mb-3 fs-1">
+                            <i class="fas fa-bed"></i>
+                        </div>
+                        <h3 class="card-title h5">Internación</h3>
+                        <p class="card-text">Ocho boxes individuales con control nocturno permanente y parte médico diario para las familias.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SECCIÓN VETERINARIOS -->
+  <!-- SECCIÓN VETERINARIOS CON CARDS DE BOOTSTRAP -->
+    <section class="veterinarios  text-center">
+
+        <h2>Conocé a nuestro equipo</h2>
+
+        <p class="descripcion-equipo mb-4">
+            Contamos con profesionales preparados para cuidar a tus mascotas.
+        </p>
+
+        <div class="row g-4 justify-content-center">    
+
+            <!-- VETERINARIO 1 -->
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="card h-100 shadow-sm">
+                    <img src="./assets/avatarveterinario.png" class="card-img-top p-3 rounded-circle w-50 mx-auto" alt="Dr. Juan Pérez">
+                    <div class="card-body text-center">
+                        <h3 class="card-title h5">Dr. Juan Pérez</h3>
+                        <p class="card-text mb-1">
+                            <strong>Especialidad:</strong><br>
+                            Clínica general
+                        </p>
+                        <p class="card-text text-dark fw-bold">
+                            <strong>Consulta:</strong><br>
+                            $15.000
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VETERINARIO 2 -->
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="card h-100 shadow-sm">
+                    <img src="./assets/avatarveterinario.png" class="card-img-top p-3 rounded-circle w-50 mx-auto" alt="Dra. María Gómez">
+                    <div class="card-body text-center">
+                        <h3 class="card-title h5">Dra. María Gómez</h3>
+                        <p class="card-text mb-1">
+                            <strong>Especialidad:</strong><br>
+                            Cirugía veterinaria
+                        </p>
+                        <p class="card-text text-dark fw-bold">
+                            <strong>Consulta:</strong><br>
+                            $18.000
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VETERINARIO 3 -->
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="card h-100 shadow-sm">
+                    <img src="./assets/avatarveterinario.png" class="card-img-top p-3 rounded-circle w-50 mx-auto" alt="Dr. Carlos López">
+                    <div class="card-body text-center">
+                        <h3 class="card-title h5">Dr. Carlos López</h3>
+                        <p class="card-text mb-1">
+                            <strong>Especialidad:</strong><br>
+                            Animales pequeños
+                        </p>
+                        <p class="card-text text-dark fw-bold">
+                            <strong>Consulta:</strong><br>
+                            $16.000
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row g-4">
+ 
+            <!-- 1: Logo -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <a href="index.html" class="footer-logo d-flex align-items-center text-decoration-none mb-3">
+                    <img src="./assets/logo/LogoHuellitas/isotipo-512.png" alt="Veterinaria Huellitas" class="me-2">
+                    <span class="nombre-footer d-flex flex-column fw-bold">
+                        Veterinaria
+                        <em>Huellitas</em>
+                    </span>
+                </a>
+                <p class="footer-bajada">Cuidamos la salud de tu mascota con amor y profesionalismo.</p>
+            </div>
+ 
+            <!-- 2: Secciones -->
+            <div class="col-6 col-md-6 col-lg-3">
+                <h3>Secciones</h3>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><a href="index.html" class="text-decoration-none">Inicio</a></li>
+                    <li class="mb-2"><a href="institucional.html" class="text-decoration-none">Sobre Nosotros</a></li>
+                    <li class="mb-2"><a href="cobertura.html" class="text-decoration-none">Cobertura</a></li>
+                    <li class="mb-2"><a href="contactos.html" class="text-decoration-none">Contactos</a></li>
+                </ul>
+            </div>
+ 
+            <!-- 3: Contacto -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <h3>Contacto</h3>
+                <p>Av. Siempre Viva 123, Ceres, Santa Fe</p>
+                <p>(03491) 000-000</p>
+                <p class="footer-horario">Lun a Vie 8 a 20 hs · Sáb 9 a 13 hs</p>
+            </div>
+ 
+            <!-- 4: Redes -->
+            <div class="col-6 col-md-6 col-lg-3">
+                <h3>Seguinos</h3>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><a href="#" class="text-decoration-none">Facebook</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none">Instagram</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none">WhatsApp</a></li>
+                </ul>
+            </div>
+ 
+        </div>
+    </div>
+</footer>
+ 
+<div class="footer-bottom text-center">
+    <p class="mb-0">&copy; 2026 Veterinaria Huellitas. Todos los derechos reservados.</p>
+</div>    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

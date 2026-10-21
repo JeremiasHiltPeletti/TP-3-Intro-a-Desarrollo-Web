@@ -1,0 +1,71 @@
+.contacto {
+    background-color: var(--selva);
+}
+ 
+.contacto-info h2 {
+    color: var(--hueso);
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+ 
+.contacto-subtitulo {
+    color: var(--menta);
+    margin-bottom: 30px;
+}
+ 
+.info-icono {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+ 
+.info-item h3 {
+    color: var(--miel);
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+ 
+.info-item p {
+    color: var(--hueso);
+    line-height: 1.5;
+    margin: 0;
+}
+ 
+/* ===== EMERGENCIA  ===== */
+.info-item.emergencia {
+    background-color: rgba(192, 71, 47, 0.15);
+    border: var(--borde);
+    border-left: 4px solid var(--alerta);
+    border-radius: var(--radio-sm);
+    padding: 15px;
+}
+ 
+.telefono-emergencia {
+    color: var(--alerta) !important;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+ 
+/* ===== REDES ===== */
+.redes-contacto a {
+    color: var(--hueso);
+    font-weight: 600;
+    text-decoration: none;
+}
+ 
+.redes-contacto a:hover {
+    color: var(--miel-suave);
+}
+ 
+/* ===== MAPA =====*/
+.contacto-mapa {
+    border-radius: var(--radio);
+    overflow: hidden;
+    box-shadow: var(--sombra);
+}
+ 
+/* ===== AJUSTES EXTRA PARA CELULAR ===== */
+@media (max-width: 575.98px) {
+    .contacto-info h2 {
+        font-size: 1.6rem;
+    }
+}
