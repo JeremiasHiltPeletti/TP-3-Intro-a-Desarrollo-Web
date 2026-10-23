@@ -3,21 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veterinarios - Veterinaria Huellitas</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons (Para mejorar el aspecto visual) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
+    <link rel="stylesheet" href="./css/EstilosBienvenida.css">
     <link rel="stylesheet" href="./css/bases.css">
     <link rel="stylesheet" href="./css/estilos.css">
+    <link rel="stylesheet" href="./css/veterinarios.css">
+    <title>Veterinarios | Veterinaria Huellitas</title>
 </head>
-<body class="d-flex flex-column min-vh-100 bg-light">
+<body>
 
-    <!-- NAV BAR -->
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark navbar-huellitas">
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-huellitas">
         <div class="container-fluid">
 
             <a class="navbar-brand Logo" href="index.html">
@@ -33,144 +30,196 @@
 
             <div class="collapse navbar-collapse" id="menuPrincipal">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link" href="institucional.html">Sobre Nosotros</a></li>
                     <li class="nav-item"><a class="nav-link" href="cobertura.html">Cobertura</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contactos.html">Contactos</a></li>
                     <li class="nav-item"><a class="nav-link" href="mascotas.html">Mascotas</a></li>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="veterinarios.html">Veterinarios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="veterinarios.html">Veterinarios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contactos.html">Contactos</a></li>
                 </ul>
             </div>
 
         </div>
     </nav>
-    </header>
+</header>
 
-    <!-- CONTENIDO PRINCIPAL -->
-    <main class="container-fluid  px-4 py-5">
+<main class="container">
 
-        <!-- Encabezado de Sección -->
-        <div class="d-flex align-items-center justify-content-between mb-4 pb-2 border-bottom">
-            <div>
-                <span class="badge bg-secondary px-3 py-2 rounded-pill fw-semibold mb-2">PROFESIONALES</span>
-                <h1 class="h2 fw-bold text-white mb-0">
-                    Veterinarios Registrados
-                    <span class="badge bg-secondary rounded-pill align-middle fs-6" id="total">0</span>
-                </h1>
+    <h1 class="h2 mb-4 text-white">Administración de Veterinarios</h1>
+
+    <section class="card">
+        <h2 class="h5 mb-3">Veterinarios registrados</h2>
+
+        <!-- Buscador, filtro y botón para dar de alta -->
+        <div class="row g-3 align-items-end mb-3">
+            <div class="col-12 col-md-5">
+                <label for="buscador" class="form-label">Buscar</label>
+                <input type="search" class="form-control" id="buscador"
+                       placeholder="Nombre, matrícula o especialización">
+            </div>
+            <div class="col-12 col-md-4">
+                <label for="filtroEspecializacion" class="form-label">Filtrar por especialización</label>
+                <select class="form-select" id="filtroEspecializacion"></select>
+            </div>
+            <div class="col-12 col-md-3 text-md-end">
+                <button type="button" class="btn boton" id="btnNuevo">+ Nuevo veterinario</button>
             </div>
         </div>
 
-        <section class="row g-4 align-items-start">
-
-            <!-- COLUMNA IZQUIERDA: TABLA DE VETERINARIOS -->
-            <article class="col-12 col-lg-7">
-
-                <!-- Buscador (opcional) -->
-                <div class="input-group mb-3">
-                    <span class="input-group-text"><i class="bi bi-search"></i></span>
-                    <input type="text" id="buscador" class="form-control" placeholder="Buscar por nombre, matrícula o especialización">
-                </div>
-
-                <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-                    <div class="card-body p-0">
-                        <div class="table-responsive">
-                            <table class="table table-hover align-middle mb-0">
-                                <thead class="table-success text-success-emphasis">
-                                    <tr>
-                                        <th scope="col" class="ps-4">Matrícula</th>
-                                        <th scope="col">Nombre</th>
-                                        <th scope="col">Especialización</th>
-                                        <th scope="col">Valor Consulta</th>
-                                        <th scope="col" class="text-center pe-4">Acciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="listado-veterinarios">
-                                    <!-- Se renderiza dinámicamente con JavaScript -->
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </article>
-
-            <!-- COLUMNA DERECHA: FORMULARIO -->
-            <article class="col-12 col-lg-5">
-                <div class="card border-0 shadow-sm rounded-4">
-                    <div class="card-body p-4">
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="bg-primary bg-opacity-10 text-primary p-2 rounded-3 me-3">
-                                <i class="bi bi-person-plus fs-4"></i>
-                            </div>
-                            <h3 class="h5 mb-0 fw-bold text-dark" id="titulo-formulario">Nuevo Veterinario</h3>
-                        </div>
-
-                        <form class="d-flex flex-column gap-3" id="form-veterinario">
-                            <!-- Campo oculto para almacenar el ID durante la edición -->
-                            <input type="hidden" name="idVeterinario" id="idVeterinario">
-
-                            <!-- Matrícula -->
-                            <div class="form-floating">
-                                <input class="form-control" type="number" name="matricula" id="matricula" min="1" step="1" placeholder="Matrícula" required>
-                                <label for="matricula"><i class="bi bi-card-text me-1"></i> Matrícula</label>
-                            </div>
-
-                            <!-- Nombre -->
-                            <div class="form-floating">
-                                <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre del veterinario" required>
-                                <label for="nombre"><i class="bi bi-person me-1"></i> Nombre y Apellido</label>
-                            </div>
-
-                            <!-- Especialización (lista de opciones predefinidas) -->
-                            <div class="form-floating">
-                                <select name="especializacion" id="especializacion" class="form-select" required>
-                                    <option value="" selected disabled>Seleccioná una opción</option>
-                                    <option value="Clínica general">Clínica general</option>
-                                    <option value="Cirugía veterinaria">Cirugía veterinaria</option>
-                                    <option value="Animales pequeños">Animales pequeños</option>
-                                    <option value="Animales exóticos">Animales exóticos</option>
-                                    <option value="Dermatología">Dermatología</option>
-                                    <option value="Cardiología">Cardiología</option>
-                                    <option value="Traumatología">Traumatología</option>
-                                    <option value="Oftalmología">Oftalmología</option>
-                                </select>
-                                <label for="especializacion"><i class="bi bi-clipboard2-pulse me-1"></i> Especialización</label>
-                            </div>
-
-                            <!-- Valor de la consulta -->
-                            <div class="form-floating">
-                                <input class="form-control" type="number" name="valorConsulta" id="valorConsulta" min="0" step="0.01" placeholder="Ejemplo 15000" required>
-                                <label for="valorConsulta"><i class="bi bi-cash me-1"></i> Valor de la Consulta ($)</label>
-                            </div>
-
-                            <!-- Botones -->
-                            <div class="d-grid gap-2 mt-2">
-                                <button id="botonAgregarVeterinario" class="btn btn-primary btn-lg fs-6 fw-semibold py-2" type="submit">
-                                    <i class="bi bi-check-circle me-1"></i> Agregar Veterinario
-                                </button>
-                                <button id="botonCancelar" class="btn btn-outline-secondary d-none" type="button" onclick="cancelarEdicion()">
-                                    Cancelar
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </article>
-
-        </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="bg-dark text-white py-4 mt-auto">
-        <div class="container text-center">
-            <p class="mb-0 text-muted">&copy; 2026 Veterinaria Huellitas - Todos los derechos reservados.</p>
+        <!-- table-responsive permite scroll horizontal en pantallas chicas -->
+        <div class="table-responsive">
+            <table class="tabla-admin align-middle">
+                <thead>
+                    <tr>
+                        <th>Matrícula</th>
+                        <th>Nombre</th>
+                        <th>Especialización</th>
+                        <th>Valor de consulta</th>
+                        <th class="text-end">Acciones</th>
+                    </tr>
+                </thead>
+                <!-- El JavaScript dibuja las filas acá adentro -->
+                <tbody id="tablaVeterinarios"></tbody>
+            </table>
         </div>
-    </footer>
 
-    <!-- BOOTSTRAP JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <p id="sinDatos" class="text-muted text-center d-none mt-3 mb-0"></p>
+    </section>
 
-    <!-- SCRIPTS DEL PROYECTO -->
-    <script src="./js/storage.js"></script>
-    <script src="./js/veterinarios.js"></script>
+</main>
+
+<!-- MODAL: alta y edición de veterinario -->
+<div class="modal fade" id="modalVeterinario" tabindex="-1" aria-labelledby="tituloFormulario" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h2 class="modal-title h5" id="tituloFormulario">Registrar veterinario</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="formVeterinario" novalidate>
+
+                    <!-- Campo oculto: guarda el id cuando se está editando. Vacío = alta nueva -->
+                    <input type="hidden" id="idVeterinario">
+
+                    <div class="row g-3">
+                        <div class="col-12 col-md-6">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" required>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <label for="matricula" class="form-label">Matrícula</label>
+                            <input type="number" class="form-control" id="matricula" min="1" step="1" required>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <label for="especializacion" class="form-label">Especialización</label>
+                            <!-- Las opciones las carga veterinarios.js desde una lista -->
+                            <select class="form-select" id="especializacion" required>
+                                <option value="">Seleccioná una especialización</option>
+                            </select>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <label for="valorConsulta" class="form-label">Valor de consulta ($)</label>
+                            <input type="number" class="form-control" id="valorConsulta" min="0" step="0.01" required>
+                        </div>
+                    </div>
+
+                    <!-- Acá se mostrarán los errores de validación -->
+                    <div id="mensaje" class="alert alert-danger mt-3 mb-0 d-none" role="alert"></div>
+
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <!-- form="formVeterinario" conecta este botón con el formulario aunque esté fuera de él -->
+                <button type="submit" form="formVeterinario" class="btn boton" id="btnGuardar">Guardar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- MODAL: confirmar eliminación -->
+<div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="tituloEliminar" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h2 class="modal-title h5" id="tituloEliminar">Eliminar veterinario</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+
+            <div class="modal-body">
+                <p class="mb-0">¿Seguro que querés eliminar a <strong id="nombreEliminar"></strong>? Esta acción no se puede deshacer.</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-eliminar" id="btnConfirmarEliminar">Eliminar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row g-4">
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <a href="index.html" class="footer-logo d-flex align-items-center text-decoration-none mb-3">
+                    <img src="./assets/logo/LogoHuellitas/isotipo-512.png" alt="Veterinaria Huellitas" class="me-2">
+                    <span class="nombre-footer d-flex flex-column fw-bold">
+                        Veterinaria
+                        <em>Huellitas</em>
+                    </span>
+                </a>
+                <p class="footer-bajada">Cuidamos la salud de tu mascota con amor y profesionalismo.</p>
+            </div>
+
+            <div class="col-6 col-md-6 col-lg-3">
+                <h3>Secciones</h3>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><a href="index.html" class="text-decoration-none">Inicio</a></li>
+                    <li class="mb-2"><a href="institucional.html" class="text-decoration-none">Sobre Nosotros</a></li>
+                    <li class="mb-2"><a href="cobertura.html" class="text-decoration-none">Cobertura</a></li>
+                    <li class="mb-2"><a href="contactos.html" class="text-decoration-none">Contactos</a></li>
+                </ul>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <h3>Contacto</h3>
+                <p>Av. Siempre Viva 123, Ceres, Santa Fe</p>
+                <p>(03491) 000-000</p>
+                <p class="footer-horario">Lun a Vie 8 a 20 hs · Sáb 9 a 13 hs</p>
+            </div>
+
+            <div class="col-6 col-md-6 col-lg-3">
+                <h3>Seguinos</h3>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><a href="#" class="text-decoration-none">Facebook</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none">Instagram</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none">WhatsApp</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+<div class="footer-bottom text-center">
+    <p class="mb-0">&copy; 2026 Veterinaria Huellitas. Todos los derechos reservados.</p>
+</div>
+
+<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Primero el archivo compartido, después el de esta página -->
+<script src="js/storage.js"></script>
+<script src="js/veterinarios.js"></script>
 </body>
 </html>

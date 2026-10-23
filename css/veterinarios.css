@@ -1,0 +1,113 @@
+/* ---------- Formulario ---------- */
+
+.form-label {
+    color: var(--selva-900);
+    font-weight: 600;
+}
+
+.form-control:focus {
+    border-color: var(--menta);
+    box-shadow: 0 0 0 .2rem rgba(79, 168, 140, .25);
+}
+
+/* ---------- Títulos dentro de las tarjetas ---------- */
+
+.card h2 {
+    color: var(--selva-900);
+}
+
+/* ---------- Tabla ---------- */
+
+/* Matrícula y valor de consulta con la tipografía de datos */
+.dato {
+    font-family: var(--dato);
+}
+
+/* ---------- Botones de acciones (Editar / Eliminar) ---------- */
+.btn-editar,
+.btn-eliminar {
+    border: none;
+    color: white;
+    font-weight: 600;
+}
+
+.btn-editar {
+    background-color: var(--menta);
+}
+
+.btn-editar:hover {
+    background-color: var(--selva);
+    color: white;
+}
+
+.btn-eliminar {
+    background-color: var(--alerta);
+}
+
+.btn-eliminar:hover {
+    background-color: #9c3824;
+    color: white;
+}
+
+/* ---------- Lista desplegable (select) y buscador ---------- */
+.form-select:focus {
+    border-color: var(--menta);
+    box-shadow: 0 0 0 .2rem rgba(79, 168, 140, .25);
+}
+
+/* ---------- Modals ---------- */
+
+.modal-title {
+    color: var(--selva-900);
+}
+
+.modal-header,
+.modal-footer {
+    border-color: rgba(20, 69, 58, .14);
+}
+
+@media (max-width: 767.98px) {
+
+    .tabla-admin thead {
+        display: none;
+    }
+
+    .tabla-admin,
+    .tabla-admin tbody,
+    .tabla-admin tr,
+    .tabla-admin td {
+        display: block;
+        width: 100%;
+    }
+
+    .tabla-admin tr {
+        padding: 8px 0;
+        border-bottom: 3px solid rgba(20, 69, 58, .14);
+    }
+
+    .tabla-admin td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        padding: 8px 16px;
+        border-bottom: none;
+        text-align: right;
+    }
+
+    .tabla-admin td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--selva-900);
+        text-align: left;
+        flex-shrink: 0;
+    }
+
+    .tabla-admin td.celda-acciones {
+        justify-content: flex-end;
+    }
+
+    .tabla-admin td.celda-acciones::before {
+        display: none;
+    }
+}
