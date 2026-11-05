@@ -20,7 +20,7 @@ function haySesion() {
 }
  
 // ---------- 2. INICIAR SESIÓN (fetch a DummyJSON) ----------
-// Devuelve: si las credenciales son correctas guarda el token,
+// Devuelve una promesa: si las credenciales son correctas guarda el token,
 // y si no, lanza un error que la página de login muestra al usuario.
 async function iniciarSesion(usuario, clave) {
   const respuesta = await fetch('https://dummyjson.com/auth/login', {
@@ -50,7 +50,8 @@ function cerrarSesion() {
 }
  
 // ---------- 4. PROTECCIÓN DE PÁGINAS ----------
-// si es una página de administración y no hay sesión,
+// Se ejecuta apenas carga el script (por eso va en el <head>, antes de que se
+// dibuje la página): si es una página de administración y no hay sesión,
 // manda al usuario al login.
 function protegerPagina() {
   const paginaActual = window.location.pathname.split('/').pop();
@@ -61,6 +62,9 @@ function protegerPagina() {
 protegerPagina();
  
 // ---------- 5. MENÚ CON "PANEL" ----------
+// Quita del menú los enlaces sueltos (Mascotas, Veterinarios, Turnos, Historia Clínica)
+// y, si hay sesión, agrega un único enlace "Panel" justo antes de "Cerrar sesión".
+// Así no hace falta editar el menú de cada página.
 function armarMenuPanel() {
   const enlacesModulos = [...document.querySelectorAll('.navbar-nav a')]
     .filter((enlace) => MODULOS_ADMIN.includes(enlace.getAttribute('href')));
@@ -71,7 +75,7 @@ function armarMenuPanel() {
     const activa = pagina === 'panel.html' || MODULOS_ADMIN.includes(pagina);
  
     const itemPanel = document.createElement('li');
-    itemPanel.className = 'nav-item';
+    itemPanel.className = 'nav-item nav-panel';
     const enlacePanel = document.createElement('a');
     enlacePanel.className = 'nav-link' + (activa ? ' active' : '');
     enlacePanel.href = 'panel.html';
@@ -79,8 +83,13 @@ function armarMenuPanel() {
     if (activa) enlacePanel.setAttribute('aria-current', 'page');
     itemPanel.appendChild(enlacePanel);
  
-    // Lo ponemos donde estaba el primer enlace de administración
-    enlacesModulos[0].closest('li').before(itemPanel);
+    // Va al final del menú, antes de "Cerrar sesión"
+    const botonCerrar = document.getElementById('btnCerrarSesion');
+    if (botonCerrar) {
+      botonCerrar.closest('li').before(itemPanel);
+    } else {
+      enlacesModulos[0].closest('ul').appendChild(itemPanel);
+    }
   }
  
   enlacesModulos.forEach((enlace) => enlace.closest('li').remove());
@@ -111,3 +120,4 @@ function actualizarNavbar() {
  
 // El menú existe recién cuando el HTML terminó de cargarse
 document.addEventListener('DOMContentLoaded', actualizarNavbar);
+ 

@@ -131,3 +131,46 @@ main{
     padding: 20px;
     background-color: var(--selva);
 }
+
+/*********** Menú: zona de sesión (Panel / Cerrar sesión / Iniciar sesión) ***********/
+
+/* Separador entre el menú público y el de sesión (solo en pantallas grandes) */
+@media (min-width: 992px) {
+    header .navbar-nav .nav-panel {
+        margin-left: 12px;
+        padding-left: 12px;
+        border-left: 1px solid rgba(237, 241, 233, .3);
+    }
+}
+
+/* Panel: botón con borde en el verde menta */
+header .navbar-nav .nav-panel .nav-link {
+    display: inline-block;
+    border: 1px solid var(--menta);
+    border-radius: 999px;
+    padding: 6px 16px;
+    color: var(--hueso);
+}
+
+header .navbar-nav .nav-panel .nav-link:hover,
+header .navbar-nav .nav-panel .nav-link.active {
+    background: var(--menta);
+    color: var(--selva-900);
+}
+
+/* Cerrar sesión e Iniciar sesión: botón miel, como "Solicitar turno" */
+header .navbar-nav [data-sin-sesion] .nav-link,
+header .navbar-nav #btnCerrarSesion {
+    display: inline-block;
+    background: var(--miel);
+    color: var(--selva-900);
+    border-radius: 999px;
+    padding: 6px 16px;
+    margin-left: 6px;
+}
+
+header .navbar-nav [data-sin-sesion] .nav-link:hover,
+header .navbar-nav #btnCerrarSesion:hover {
+    background: var(--miel-suave);
+    color: var(--selva-900);
+}
