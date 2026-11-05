@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel - Veterinaria Huellitas</title>
+    <script src="js/auth.js"></script>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons (Para mejorar el aspecto visual) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <link rel="stylesheet" href="./css/bases.css">
+    <link rel="stylesheet" href="./css/estilos.css">
+    <link rel="stylesheet" href="./css/panel.css">
+</head>
+<body class="d-flex flex-column min-vh-100 bg-light">
+
+    <!-- NAV BAR -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-huellitas">
+        <div class="container-fluid">
+
+            <a class="navbar-brand Logo" href="index.html">
+                <img src="./assets/logo/LogoHuellitas/isotipo-512.png" alt="Veterinaria Huellitas">
+                <span class="nombre-veterinaria">Veterinaria <em>Huellitas</em></span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#menuPrincipal" aria-controls="menuPrincipal"
+                    aria-expanded="false" aria-label="Abrir menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="institucional.html">Sobre Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cobertura.html">Cobertura</a></li>
+                    <li class="nav-item d-none" data-admin><a class="nav-link" href="mascotas.html">Mascotas</a></li>
+                    <li class="nav-item d-none" data-admin><a class="nav-link" href="veterinarios.html">Veterinarios</a></li>
+                    <li class="nav-item d-none" data-admin><a class="nav-link" href="turnos.html">Turnos</a></li>
+                    <li class="nav-item d-none" data-admin><a class="nav-link" href="historia.html">Historia Clínica</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contactos.html">Contactos</a></li>
+                    <li class="nav-item" data-sin-sesion><a class="nav-link" href="login.html">Iniciar sesión</a></li>
+                    <li class="nav-item d-none" data-admin><a class="nav-link" href="#" id="btnCerrarSesion">Cerrar sesión</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="container py-5">
+
+        <span class="badge bg-primary px-3 py-2 rounded-pill fw-semibold mb-2">PANEL ADMIN</span>
+        <h1 class="display-6 fw-bold text-dark mb-1">Hola, <span id="nombreUsuario">administrador</span></h1>
+        <p class="text-muted mb-4">Elegí un módulo para gestionar.</p>
+
+        <section class="row g-4">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm rounded-4">
+                        <div class="card-body p-4 d-flex flex-column">
+                            <h2 class="h5 fw-bold text-dark">Mascotas</h2>
+                            <p class="text-muted mb-2">Alta, edición y baja de mascotas.</p>
+                            <span class="badge bg-secondary mb-3" id="contadorMascotas">0 registrados</span>
+                            <a href="mascotas.html" class="btn btn-primary mt-auto fw-semibold">Ingresar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm rounded-4">
+                        <div class="card-body p-4 d-flex flex-column">
+                            <h2 class="h5 fw-bold text-dark">Veterinarios</h2>
+                            <p class="text-muted mb-2">Gestión del equipo profesional.</p>
+                            <span class="badge bg-secondary mb-3" id="contadorVeterinarios">0 registrados</span>
+                            <a href="veterinarios.html" class="btn btn-primary mt-auto fw-semibold">Ingresar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm rounded-4">
+                        <div class="card-body p-4 d-flex flex-column">
+                            <h2 class="h5 fw-bold text-dark">Turnos</h2>
+                            <p class="text-muted mb-2">Agenda de turnos de la clínica.</p>
+                            <span class="badge bg-secondary mb-3" id="contadorTurnos">0 registrados</span>
+                            <a href="turnos.html" class="btn btn-primary mt-auto fw-semibold">Ingresar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm rounded-4">
+                        <div class="card-body p-4 d-flex flex-column">
+                            <h2 class="h5 fw-bold text-dark">Historia Clínica</h2>
+                            <p class="text-muted mb-2">Registro de consultas y tratamientos.</p>
+                            <span class="badge bg-warning text-dark mb-3">Registro clínico</span>
+                            <a href="historia.html" class="btn btn-primary mt-auto fw-semibold">Ingresar</a>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </main>
+    <!-- FOOTER -->
+    <footer class="footer">
+    <div class="container">
+        <div class="row g-4">
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <a href="index.html" class="footer-logo d-flex align-items-center text-decoration-none mb-3">
+                    <img src="./assets/logo/LogoHuellitas/isotipo-512.png" alt="Veterinaria Huellitas" class="me-2">
+                    <span class="nombre-footer d-flex flex-column fw-bold">
+                        Veterinaria
+                        <em>Huellitas</em>
+                    </span>
+                </a>
+                <p class="footer-bajada">Cuidamos la salud de tu mascota con amor y profesionalismo.</p>
+            </div>
+
+            <div class="col-6 col-md-6 col-lg-3">
+                <h3>Secciones</h3>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><a href="index.html" class="text-decoration-none">Inicio</a></li>
+                    <li class="mb-2"><a href="institucional.html" class="text-decoration-none">Sobre Nosotros</a></li>
+                    <li class="mb-2"><a href="cobertura.html" class="text-decoration-none">Cobertura</a></li>
+                    <li class="mb-2"><a href="contactos.html" class="text-decoration-none">Contactos</a></li>
+                </ul>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <h3>Contacto</h3>
+                <p>Av. Siempre Viva 123, Ceres, Santa Fe</p>
+                <p>(03491) 000-000</p>
+                <p class="footer-horario">Lun a Vie 8 a 20 hs · Sáb 9 a 13 hs</p>
+            </div>
+
+            <div class="col-6 col-md-6 col-lg-3">
+                <h3>Seguinos</h3>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><a href="#" class="text-decoration-none">Facebook</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none">Instagram</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none">WhatsApp</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+<div class="footer-bottom text-center">
+    <p class="mb-0">&copy; 2026 Veterinaria Huellitas. Todos los derechos reservados.</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/panel.js"></script>
+</body>
+</html>

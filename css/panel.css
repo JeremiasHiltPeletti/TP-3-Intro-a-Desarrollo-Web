@@ -1,0 +1,17 @@
+main {
+    background-color: transparent;
+}
+
+/* Botones y etiqueta de Bootstrap en el verde del sitio */
+.btn-primary {
+    --bs-btn-bg: var(--selva);
+    --bs-btn-border-color: var(--selva);
+    --bs-btn-hover-bg: var(--selva-900);
+    --bs-btn-hover-border-color: var(--selva-900);
+    --bs-btn-active-bg: var(--selva-900);
+    --bs-btn-active-border-color: var(--selva-900);
+}
+
+.badge.bg-primary {
+    background-color: var(--selva) !important;
+}
