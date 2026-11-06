@@ -114,6 +114,9 @@ function render() {
           <td>${nombreVeterinario(turno.idVeterinario)}</td>
           <td>${escaparHTML(turno.motivo)}</td>
           <td class="text-center pe-4">
+            <button class="btn btn-outline-success btn-sm me-1" onclick="imprimirComprobante('${turno.idTurno}')">
+              Comprobante
+            </button>
             <button class="btn btn-danger btn-sm" onclick="eliminarTurno('${turno.idTurno}')">
               Eliminar
             </button>
@@ -188,3 +191,70 @@ botonLimpiarFiltros.addEventListener('click', () => {
   filtroFecha.value = '';
   render();
 });
+
+// ---------- COMPROBANTE DEL TURNO (opcional) ----------
+// Abre una ventana con el comprobante y lanza el diálogo de impresión.
+// Desde ahí se puede imprimir o elegir "Guardar como PDF" como destino.
+function imprimirComprobante(id) {
+  const turno = turnos.find((t) => t.idTurno === id);
+  if (!turno) return;
+
+  const mascota = obtenerDatos(CLAVE_MASCOTAS).find((m) => m.idMascota === turno.idMascota);
+  const duenio = mascota ? mascota.nombreDuenio : '-';
+
+  // Dirección completa del logo (la ventana nueva no sabe dónde está la carpeta assets)
+  const urlLogo = new URL('assets/logo/LogoHuellitas/isotipo-512.png', window.location.href).href;
+
+  const ventana = window.open('', '_blank', 'width=700,height=800');
+  if (!ventana) {
+    alert('Tu navegador bloqueó la ventana. Permití las ventanas emergentes para imprimir el comprobante.');
+    return;
+  }
+
+  ventana.document.write(`<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Comprobante de turno</title>
+  <style>
+    body { font-family: Arial, sans-serif; color: #1b2a22; margin: 40px; }
+    .comprobante { max-width: 560px; margin: 0 auto; border: 2px solid #14463b; border-radius: 12px; padding: 32px; }
+    .encabezado { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+    .encabezado img { width: 72px; height: 72px; }
+    h1 { margin: 0; color: #14463b; font-size: 26px; }
+    h2 { margin: 4px 0 0; font-size: 16px; font-weight: normal; color: #555; }
+    table { width: 100%; border-collapse: collapse; }
+    td { padding: 10px 0; border-bottom: 1px solid #ddd; }
+    td:first-child { color: #555; width: 38%; }
+    td:last-child { font-weight: bold; }
+    .pie { margin-top: 28px; font-size: 13px; color: #555; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="comprobante">
+    <div class="encabezado">
+      <img src="${urlLogo}" alt="Veterinaria Huellitas">
+      <div>
+        <h1>Veterinaria Huellitas</h1>
+        <h2>Comprobante de turno</h2>
+      </div>
+    </div>
+    <table>
+      <tr><td>Nº de turno</td><td>${escaparHTML(String(turno.idTurno).slice(0, 8).toUpperCase())}</td></tr>
+      <tr><td>Fecha</td><td>${formatearFecha(turno.fecha)}</td></tr>
+      <tr><td>Hora</td><td>${turno.hora} hs</td></tr>
+      <tr><td>Mascota</td><td>${escaparHTML(nombreMascota(turno.idMascota))}</td></tr>
+      <tr><td>Dueño</td><td>${escaparHTML(duenio)}</td></tr>
+      <tr><td>Veterinario</td><td>${escaparHTML(nombreVeterinario(turno.idVeterinario))}</td></tr>
+      <tr><td>Motivo</td><td>${escaparHTML(turno.motivo)}</td></tr>
+    </table>
+    <p class="pie">
+      Av. Siempre Viva 123, Ceres, Santa Fe · (03491) 000-000<br>
+      Por favor, presentate unos minutos antes del horario del turno.
+    </p>
+  </div>
+  <script>window.onload = function () { window.print(); };</script>
+</body>
+</html>`);
+  ventana.document.close();
+}
