@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="./css/EstilosBienvenida.css">
+    <link rel="stylesheet" href="./css/bases.css">
+    <link rel="stylesheet" href="./css/estilos.css">
+    <link rel="stylesheet" href="./css/historia.css">
+
+    <script src="js/auth.js"></script>
+
+    <title>Historia Clínica | Veterinaria Huellitas</title>
+</head>
+<body>
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-huellitas">
+            <div class="container-fluid">
+
+                <a class="navbar-brand Logo" href="index.html">
+                    <img src="./assets/logo/LogoHuellitas/isotipo-512.png" alt="Veterinaria Huellitas">
+                    <span class="nombre-veterinaria">Veterinaria <em>Huellitas</em></span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#menuPrincipal" aria-controls="menuPrincipal"
+                        aria-expanded="false" aria-label="Abrir menú">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menuPrincipal">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="institucional.html">Sobre Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cobertura.html">Cobertura</a>
+                        </li>
+                        <li class="nav-item d-none" data-admin>
+                            <a class="nav-link" href="mascotas.html">Mascotas</a>
+                        </li>
+                        <li class="nav-item d-none" data-admin>
+                            <a class="nav-link" href="veterinarios.html">Veterinarios</a>
+                        </li>
+                        <li class="nav-item d-none" data-admin>
+                            <a class="nav-link" href="turnos.html">Turnos</a>
+                        </li>
+                        <li class="nav-item d-none" data-admin>
+                            <a class="nav-link active" href="historia.html">Historia Clínica</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contactos.html">Contactos</a>
+                        </li>
+                        <li class="nav-item" data-sin-sesion>
+                            <a class="nav-link" href="login.html">Iniciar sesión</a>
+                        </li>
+                        <li class="nav-item d-none" data-admin>
+                            <a class="nav-link" href="#" id="btnCerrarSesion">Cerrar sesión</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="container py-4">
+
+        <h1 class="h2 mb-4 text-white">Administración de Historia Clínica</h1>
+
+        <section class="row g-4">
+
+            <!-- COLUMNA IZQUIERDA: FORMULARIO -->
+            <article class="col-12 col-lg-5">
+
+                <div class="card border-0 shadow-sm rounded-4">
+
+                    <div class="card-body p-4">
+
+                        <h2 class="h5 mb-4">Registrar nueva consulta</h2>
+
+                        <div id="avisoHistoria" class="alert alert-warning d-none" role="alert"></div>
+
+                        <form id="form-historia" class="d-flex flex-column gap-3">
+
+                            <!-- Mascota -->
+                            <div>
+                                <label for="idMascota" class="form-label">Mascota</label>
+                                <select name="idMascota" id="idMascota" class="form-select" required>
+                                    <option value="">Seleccioná una mascota</option>
+                                </select>
+                            </div>
+
+                            <!-- Veterinario -->
+                            <div>
+                                <label for="idVeterinario" class="form-label">Veterinario</label>
+                                <select name="idVeterinario" id="idVeterinario" class="form-select" required>
+                                    <option value="">Seleccioná un veterinario</option>
+                                </select>
+                            </div>
+
+                            <!-- Fecha -->
+                            <div>
+                                <label for="fecha" class="form-label">Fecha de atención</label>
+                                <input type="date" name="fecha" id="fecha" class="form-control" required>
+                            </div>
+
+                            <!-- Motivo -->
+                            <div>
+                                <label for="motivo" class="form-label">Motivo de consulta</label>
+                                <input type="text" name="motivo" id="motivo" class="form-control"
+                                       placeholder="Ej. Control general" required>
+                            </div>
+
+                            <!-- Diagnóstico -->
+                            <div>
+                                <label for="diagnostico" class="form-label">Diagnóstico</label>
+                                <textarea name="diagnostico" id="diagnostico" class="form-control"
+                                          rows="3" placeholder="Diagnóstico del veterinario" required></textarea>
+                            </div>
+
+                            <!-- Tratamiento -->
+                            <div>
+                                <label for="tratamiento" class="form-label">Tratamiento</label>
+                                <textarea name="tratamiento" id="tratamiento" class="form-control"
+                                          rows="3" placeholder="Tratamiento indicado" required></textarea>
+                            </div>
+
+                            <!-- Observaciones -->
+                            <div>
+                                <label for="observaciones" class="form-label">Observaciones</label>
+                                <textarea name="observaciones" id="observaciones" class="form-control"
+                                          rows="2" placeholder="Información adicional (opcional)"></textarea>
+                            </div>
+
+                            <div class="d-grid mt-2">
+                                <button type="submit" id="botonAgregarHistoria" class="btn btn-primary fw-semibold">
+                                    <i class="bi bi-check-circle me-1"></i>
+                                    Registrar consulta
+                                </button>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+
+            </article>
+
+            <!-- COLUMNA DERECHA: LISTADO -->
+            <article class="col-12 col-lg-7">
+
+                <div class="card border-0 shadow-sm rounded-4">
+
+                    <div class="card-body p-4">
+
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h2 class="h5 mb-0">Consultas registradas</h2>
+                            <span class="badge text-bg-success">
+                                Total: <span id="totalHistorias">0</span>
+                            </span>
+                        </div>
+
+                        <!-- FILTRO POR MASCOTA -->
+                        <div class="mb-3">
+                            <label for="filtroMascota" class="form-label">Consultar historial de una mascota</label>
+                            <select id="filtroMascota" class="form-select">
+                                <option value="">Todas las mascotas</option>
+                            </select>
+                        </div>
+
+                        <!-- TABLA -->
+                        <div class="table-responsive">
+
+                            <table class="tabla-admin align-middle">
+
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Mascota</th>
+                                        <th>Veterinario</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="listado-historias">
+                                    <!-- JavaScript genera las filas -->
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                        <p id="sinDatos" class="text-muted text-center d-none mt-3 mb-0"></p>
+
+                    </div>
+                </div>
+
+            </article>
+
+        </section>
+
+    </main>
+
+    <!-- MODAL: DETALLE DE LA CONSULTA -->
+    <div class="modal fade" id="modalHistoria" tabindex="-1"
+         aria-labelledby="tituloModalHistoria" aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h2 class="modal-title h5" id="tituloModalHistoria">Detalle de consulta</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Cerrar"></button>
+                </div>
+
+                <div class="modal-body" id="detalleHistoria">
+                    <!-- JavaScript muestra los datos de la consulta -->
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary"
+                            data-bs-dismiss="modal">Cerrar</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <a href="index.html" class="footer-logo d-flex align-items-center text-decoration-none mb-3">
+                        <img src="./assets/logo/LogoHuellitas/isotipo-512.png"
+                             alt="Veterinaria Huellitas" class="me-2">
+                        <span class="nombre-footer d-flex flex-column fw-bold">
+                            Veterinaria
+                            <em>Huellitas</em>
+                        </span>
+                    </a>
+                    <p class="footer-bajada">Cuidamos la salud de tu mascota con amor y profesionalismo.</p>
+                </div>
+
+                <div class="col-6 col-md-6 col-lg-3">
+                    <h3>Secciones</h3>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><a href="index.html" class="text-decoration-none">Inicio</a></li>
+                        <li class="mb-2"><a href="institucional.html" class="text-decoration-none">Sobre Nosotros</a></li>
+                        <li class="mb-2"><a href="cobertura.html" class="text-decoration-none">Cobertura</a></li>
+                        <li class="mb-2"><a href="contactos.html" class="text-decoration-none">Contactos</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h3>Contacto</h3>
+                    <p>Av. Siempre Viva 123, Ceres, Santa Fe</p>
+                    <p>(03491) 000-000</p>
+                    <p class="footer-horario">Lun a Vie 8 a 20 hs · Sáb 9 a 13 hs</p>
+                </div>
+
+                <div class="col-6 col-md-6 col-lg-3">
+                    <h3>Seguinos</h3>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><a href="#" class="text-decoration-none">Facebook</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none">Instagram</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none">WhatsApp</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <div class="footer-bottom text-center">
+        <p class="mb-0">&copy; 2026 Veterinaria Huellitas. Todos los derechos reservados.</p>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/historia.js"></script>
+
+</body>
+</html>
