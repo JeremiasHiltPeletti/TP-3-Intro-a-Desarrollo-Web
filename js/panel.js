@@ -3,7 +3,7 @@
 
 // Saludo con el nombre del usuario que inició sesión
 document.getElementById('nombreUsuario').textContent =
-  sessionStorage.getItem('usuario') || 'administrador';
+  localStorage.getItem('usuario') || 'administrador';
 
 // Cantidad de registros de cada módulo, leída desde LocalStorage
 function mostrarContador(idElemento, clave) {
